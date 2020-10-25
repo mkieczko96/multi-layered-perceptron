@@ -37,13 +37,13 @@ namespace NeuralNetwork.Test
         }
 
         [Theory]
-        [InlineData (-3.5D, 0.0293122307513563D)]
-        [InlineData (-2.20005D, 0.09974599919308860D)]
-        [InlineData (-1.0D, 0.2689414213699950D)]
+        [InlineData (-3.5D, 0.02931223075135632D)]
+        [InlineData (-2.20005D, 0.09974599919308862D)]
+        [InlineData (-1.0D, 0.2689414213699951D)]
         [InlineData (0D, 0.5D)]
-        [InlineData (1D, 0.7310585786300050D)]
-        [InlineData (2.20005D, 0.9002540008069110D)]
-        [InlineData (3.5D, 0.9706877692486440D)]
+        [InlineData (1D, 0.7310585786300049D)]
+        [InlineData (2.20005D, 0.9002540008069114D)]
+        [InlineData (3.5D, 0.9706877692486436D)]
         public void Logistic_ActivationFunction_Test(double value, double expected)
         {
             var neuron = new Neuron ();
@@ -52,13 +52,13 @@ namespace NeuralNetwork.Test
         }
 
         [Theory]
-        [InlineData (-3.5D, -0.998177897611199D)]
-        [InlineData (-2.20005D, -0.975745526181758D)]
-        [InlineData (-1.0D, -0.761594155955765D)]
+        [InlineData (-3.5D, -0.9981778976111987D)]
+        [InlineData (-2.20005D, -0.9757455261817578D)]
+        [InlineData (-1.0D, -0.7615941559557649D)]
         [InlineData (0D, 0D)]
-        [InlineData (1D, 0.761594155955765D)]
-        [InlineData (2.20005D, 0.975745526181758D)]
-        [InlineData (3.5D, 0.998177897611199D)]
+        [InlineData (1D, 0.7615941559557649D)]
+        [InlineData (2.20005D, 0.9757455261817578D)]
+        [InlineData (3.5D, 0.9981778976111987D)]
         public void TanH_ActivationFunction_Test(double value, double expected)
         {
             var neuron = new Neuron ();
