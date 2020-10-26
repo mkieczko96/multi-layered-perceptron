@@ -112,8 +112,8 @@ namespace NeuralNetwork.Test
         [InlineData (-1.0D, 0.31326168751822283404899549496786D)]
         [InlineData (0D, 0.69314718055994530941723212145818D)]
         [InlineData (1D, 1.3132616875182228340489954949679D)]
-        [InlineData (2.20005D, 2.3051283323564888469682727979722D)]
-        [InlineData (3.5D, 3.5297504182726205651948111740817D)]
+        [InlineData (2.20005D, 2.30512833235648885D)]
+        [InlineData (3.5D, 3.52975041827262057D)]
         public void SoftPlus_ActivationFunction_Test (double value, double expected)
         {
             // Arrange
@@ -127,9 +127,9 @@ namespace NeuralNetwork.Test
         }
 
         [Theory]
-        [InlineData (-0.5D, -3.5D, 0.48490130828884074963010685381819D)]
-        [InlineData (-0.5D, -2.20005D, 0.44460119082854129688869138760844D)]
-        [InlineData (-0.5D, -1.0D, 0.31606027941427883920223811491927D)]
+        [InlineData (-0.5D, -3.5D, 0.48490130828884076D)]
+        [InlineData (-0.5D, -2.20005D, 0.4446011908285413D)]
+        [InlineData (-0.5D, -1.0D, 0.31606027941427883D)]
         [InlineData (-0.5D, 0D, 0D)]
         [InlineData (-0.5D, 1D, 1D)]
         [InlineData (-0.5D, 2.20005D, 2.20005D)]

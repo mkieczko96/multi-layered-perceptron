@@ -7,26 +7,24 @@ namespace NeuralNetwork.MLP
     {
         #region Activation Functions
         public double Identity(double x) => x;
-        public double  BinaryStep(double x) => x < 0 ? 0 : 1;
-        public double  Logistic (double x) => 1 / (1 + Exp(-x));
+        public double  BinaryStep(double x) => x < 0D ? 0D : 1D;
+        public double  Logistic (double x) => 1D / (1D + Exp(-x));
         public double  TanH(double x) => (Exp(x) - Exp(-x)) / (Exp(x) + Exp(-x));
-        public double  ReLU (double x) => Max(0, x);
-        //public double GELU (double x) => throw new NotImplementedException ();
-        public double SoftPlus(double x) => throw new NotImplementedException ();
-        public double ELU (double a, double x) => throw new NotImplementedException ();
-        public double SELU (double a, double x) => throw new NotImplementedException ();
-        public double LeakyReLU (double x) => throw new NotImplementedException ();
-        public double PReLU (double a, double x) => throw new NotImplementedException ();
-        public double ArcTan (double x) => throw new NotImplementedException ();
-        public double ElliotSig (double x) => throw new NotImplementedException ();
-        public double SQNL (double x) => throw new NotImplementedException ();
-        //public double SReLU (double x) => throw new NotImplementedException ();
-        public double BentIdentity (double x) => throw new NotImplementedException ();
-        public double SiLU (double x) => throw new NotImplementedException ();
-        public double Sin (double x) => throw new NotImplementedException ();
-        public double Sinc (double x) => throw new NotImplementedException ();
-        public double Gaussian (double x) => throw new NotImplementedException ();
-        public double SQRBF (double x) => throw new NotImplementedException ();
+        public double  ReLU (double x) => Max(0D, x);
+        public double SoftPlus(double x) => Log(1D + Exp(x));
+        public double ELU (double a, double x) => x <= 0D ? a*(Exp(x) - 1D) : x;
+        public double SELU (double a, double x) => x < 0D ? 1.0507D * a * (Exp(x) - 1D) : 1.0507D*x;
+        public double LeakyReLU (double x) => x < 0D ? 0.01D * x : x;
+        public double PReLU (double a, double x) => x < 0D ? a * x : x;
+        public double ArcTan (double x) => Atan(x);
+        public double ElliotSig (double x) => x / (1 + Abs(x));
+        public double SQNL (double x) => x > 2D ? 1D : x >= 0D ? x - (Pow(x, 2D) / 4D) : x >= -2D ? x + (Pow(x, 2D) / 4D) : -1D;
+        public double BentIdentity (double x) => (Sqrt(Pow(x, 2D) + 1D) - 1D) / 2D + x;
+        public double SiLU (double x) => x / (1D + Exp(-x));
+        public double Sin (double x) => Sin(x);
+        public double Sinc (double x) => x != 0D ? Sin(x) / x : 1D;
+        public double Gaussian (double x) => Exp(-Pow(x, 2D));
+        public double SQRBF (double x) => Abs(x) <= 1D ? 1D - Pow(x, 2D) / 2D : Abs(x) < 2D ? Pow(2D - Abs(x), 2D) / 2D : 0D;
         #endregion
 
         #region Properties
