@@ -6,6 +6,8 @@ namespace NeuralNetwork.Test
 {
     public class NeuronTests
     {
+        private const double error = 0.00000000000000001D;
+
         [Theory]
         [InlineData (-3.5D, -3.5D)]
         [InlineData (-2.20005D, -2.20005D)]
@@ -23,7 +25,7 @@ namespace NeuralNetwork.Test
             var result = neuron.Identity(value);
 
             // Assert
-            Assert.Equal(expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -43,7 +45,7 @@ namespace NeuralNetwork.Test
             var result = neuron.BinaryStep (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -63,7 +65,7 @@ namespace NeuralNetwork.Test
             var result = neuron.Logistic (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -83,7 +85,7 @@ namespace NeuralNetwork.Test
             var result = neuron.TanH (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -103,7 +105,7 @@ namespace NeuralNetwork.Test
             var result = neuron.ReLU (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -123,7 +125,7 @@ namespace NeuralNetwork.Test
             var result = neuron.SoftPlus (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -141,9 +143,9 @@ namespace NeuralNetwork.Test
             
             // Act
             var result = neuron.ELU (parameter, value);
-            
+
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -161,9 +163,9 @@ namespace NeuralNetwork.Test
             
             // Act
             var result = neuron.SELU (parameter, value);
-            
+
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -183,7 +185,7 @@ namespace NeuralNetwork.Test
             var result = neuron.LeakyReLU (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs(expected - result) < error);
         }
 
         [Theory]
@@ -203,17 +205,17 @@ namespace NeuralNetwork.Test
             var result = neuron.PReLU (parameter, value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
-        [InlineData (-3.5D, -74.0546041D)]
-        [InlineData (-2.20005D, -65.55653576D)]
-        [InlineData (-1.0D, -45D)]
+        [InlineData (-3.5D, -1.2924966677897853D)]
+        [InlineData (-2.20005D, -1.1441773951505951D)]
+        [InlineData (-1.0D, -0.7853981633974483D)]
         [InlineData (0D, 0D)]
-        [InlineData (1D, 45D)]
-        [InlineData (2.20005D, 65.55653576D)]
-        [InlineData (3.5D, 74.0546041D)]
+        [InlineData (1D, 0.7853981633974483D)]
+        [InlineData (2.20005D, 1.1441773951505951D)]
+        [InlineData (3.5D, 1.2924966677897853D)]
         public void ArcTan_ActivationFunction_Test (double value, double expected)
         {
             // Arrange
@@ -221,9 +223,9 @@ namespace NeuralNetwork.Test
             
             // Act
             var result = neuron.ArcTan (value);
-            
+
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -243,7 +245,7 @@ namespace NeuralNetwork.Test
             var result = neuron.ElliotSig (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -263,17 +265,17 @@ namespace NeuralNetwork.Test
             var result = neuron.SQNL (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
-        [InlineData (-3.5D, -2.1799725276798704322256743771182D)]
-        [InlineData (-2.20005D, -1.4917226434343216443408867100337D)]
-        [InlineData (-1.0D, -0.79289321881345247559915563789515D)]
+        [InlineData (-3.5D, -2.1799725276798707D)]
+        [InlineData (-2.20005D, -1.4917226434343216D)]
+        [InlineData (-1.0D, -0.7928932188134524D)]
         [InlineData (0D, 0D)]
-        [InlineData (1D, 1.2071067811865475244008443621048D)]
-        [InlineData (2.20005D, 2.9083773565656783556591132899663D)]
-        [InlineData (3.5D, 4.8200274723201295677743256228818D)]
+        [InlineData (1D, 1.2071067811865475D)]
+        [InlineData (2.20005D, 2.9083773565656785D)]
+        [InlineData (3.5D, 4.820027472320129D)]
         public void BentIdentity_ActivationFunction_Test (double value, double expected)
         {
             // Arrange
@@ -281,9 +283,9 @@ namespace NeuralNetwork.Test
             
             // Act
             var result = neuron.BentIdentity (value);
-            
+
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -303,7 +305,7 @@ namespace NeuralNetwork.Test
             var result = neuron.SiLU (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -323,7 +325,7 @@ namespace NeuralNetwork.Test
             var result = neuron.Sin (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -345,17 +347,17 @@ namespace NeuralNetwork.Test
             var result = neuron.Sinc (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
-        [InlineData (-3.5D, 0.00000478511739212901D)]
-        [InlineData (-2.20005D, 0.007905314671275481D)]
+        [InlineData (-3.5D, 0.000004785117392129009D)]
+        [InlineData (-2.20005D, 0.007905314671275475D)]
         [InlineData (-1.0D, 0.36787944117144233D)]
         [InlineData (0D, 1D)]
         [InlineData (1D, 0.36787944117144233D)]
-        [InlineData (2.20005D, 0.007905314671275481D)]
-        [InlineData (3.5D, 0.00000478511739212901D)]
+        [InlineData (2.20005D, 0.007905314671275475D)]
+        [InlineData (3.5D, 0.000004785117392129009D)]
         public void Gaussian_ActivationFunction_Test (double value, double expected)
         {
             // Arrange
@@ -365,7 +367,7 @@ namespace NeuralNetwork.Test
             var result = neuron.Gaussian (value);
 
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
 
         [Theory]
@@ -383,9 +385,9 @@ namespace NeuralNetwork.Test
             
             // Act
             var result = neuron.SQRBF (value);
-            
+
             // Assert
-            Assert.Equal (expected, result);
+            Assert.True (Math.Abs (expected - result) < error);
         }
     }
 }
