@@ -19,8 +19,8 @@ namespace NeuralNetwork.MLP
         public double ReLU (double x) => Max(0D, x);
         public double SELU (double a, double x) => x < 0D ? 1.0507D * a * (Exp(x) - 1D) : 1.0507D*x;
         public double SiLU (double x) => x / (1D + Exp(-x));
-        public double Sin (double x) => Sin(x);
-        public double Sinc (double x) => x != 0D ? Sin(x) / x : 1D;
+        public double Sin (double x) => Math.Sin(x);
+        public double Sinc (double x) => x != 0D ? Math.Sin(x) / x : 1D;
         public double SoftPlus(double x) => Log(1D + Exp(x));
         public double SQNL (double x) => x > 2D ? 1D : x >= 0D ? x - (Pow(x, 2D) / 4D) : x >= -2D ? x + (Pow(x, 2D) / 4D) : -1D;
         public double SQRBF (double x) => Abs (x) <= 1D ? 1D - Pow (x, 2D) / 2D : Abs (x) < 2D ? Pow (2D - Abs (x), 2D) / 2D : 0D;
